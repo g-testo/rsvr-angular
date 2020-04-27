@@ -7,7 +7,6 @@ import { EventFormComponent } from './components/event/event-form/event-form.com
 import { EventListComponent } from './components/event/event-list/event-list.component';
 import { EventDetailComponent } from './components/event/event-detail/event-detail.component';
 
-
 const routes: Routes = [
   { path: 'users/form', component: UserFormComponent },
   { path: 'users/list', component: UserListComponent },
