@@ -16,14 +16,14 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(){
-    
+  getUser(id: number){
+    return this.http.get(this.resourceUrl + id, this.httpOptions)
   }
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.resourceUrl);
   }
-  postUser(){
-
+  postUser(user: User){
+    return this.http.post(this.resourceUrl, user, this.httpOptions);
   }
   putUser(){
 

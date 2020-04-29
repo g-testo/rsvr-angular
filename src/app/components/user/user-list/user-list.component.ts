@@ -16,8 +16,8 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers().subscribe((users: User[])=>{
       this.userList = users;
     })
-    this.userService.usersChanged.subscribe((newUserList: User[])=>{
-      this.userList = newUserList;
+    this.userService.usersChanged.subscribe((users: User[])=>{
+      this.userList = users;
     })
   }
 
