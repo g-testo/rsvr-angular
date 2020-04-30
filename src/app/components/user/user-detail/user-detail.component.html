@@ -1,2 +1,12 @@
-<div>{{currentUser.name}}</div>
-<div>{{currentUser.email}}</div>
+<div *ngIf="user">
+    <div>User Name: {{user.name}}</div>
+    <div>Email: {{user.email}}</div>
+    <ul *ngFor="let event of user.events">
+        <li>Event Name: {{event.name}}</li>
+        <li>Location: {{event.location}}</li>
+        <li>Cost: {{event.cost}}</li>
+        <a [routerLink]="['/events', event.id]">
+            See Event
+        </a>
+    </ul>
+</div>

@@ -1,1 +1,8 @@
-<p>event-list works!</p>
+<ul *ngFor="let event of eventList">
+    <li>{{event.name}}</li>
+    <li>{{event.location}}</li>
+    <li>{{event.cost}}</li>
+    <!-- <li>{{event.eventDate}}</li> -->
+    <li><a [routerLink]="['/events', event.id]">See More</a></li>
+    <button (click)="handleDelete(event.id)">Delete</button>
+</ul>

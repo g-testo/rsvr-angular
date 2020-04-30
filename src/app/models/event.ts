@@ -1,8 +1,11 @@
+import { User } from './user';
+
 export class Event {
     constructor(
         public name?: string,
         public location?: string,
         public cost?: number,
-        public eventDate?: Date
+        public eventDate?: Date,
+        public users?: User[]
     ){};
 }

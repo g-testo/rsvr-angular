@@ -10,15 +10,18 @@ import { Subscriber } from 'rxjs';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  currentUser: User;
+  user: User;
   constructor(private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       let id = params['userId'];
+
       this.userService.getUser(id).subscribe((user: User)=>{
-        this.currentUser = user;
+        console.log(user);
+        this.user = user;
       })
+
     })
   }
 
