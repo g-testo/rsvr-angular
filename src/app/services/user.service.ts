@@ -1,18 +1,20 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { EventService } from './event.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   users: User[];
+  loggedInUserId: string;
   resourceUrl: string = "http://localhost:8080/users/";
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private eventService: EventService) { }
 
   getUser(id: number){
     return this.http.get(this.resourceUrl + id, this.httpOptions);

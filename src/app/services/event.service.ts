@@ -13,8 +13,7 @@ export class EventService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getEvent(id: number): Observable<Event>{
     return this.http.get(this.resourceUrl + id, this.httpOptions);
