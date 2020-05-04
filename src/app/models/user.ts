@@ -1,3 +1,5 @@
+import { Event } from './event';
+
 export class User {
     constructor(
         public id?: number,

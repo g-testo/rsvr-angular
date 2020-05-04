@@ -10,9 +10,11 @@ import { EventDetailComponent } from './components/event/event-detail/event-deta
 const routes: Routes = [
   { path: 'users/form', component: UserFormComponent },
   { path: 'users/list', component: UserListComponent },
+  { path: 'users/form/:userId', component: UserFormComponent },
   { path: 'users/:userId', component: UserDetailComponent },
   { path: 'events/form', component: EventFormComponent },
   { path: 'events/list', component: EventListComponent },
+  { path: 'events/form/:eventId', component: EventFormComponent },
   { path: 'events/:eventId', component: EventDetailComponent }
 ];
 

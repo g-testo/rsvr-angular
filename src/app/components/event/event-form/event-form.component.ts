@@ -10,17 +10,32 @@ import { Location } from '@angular/common';
   styleUrls: ['./event-form.component.css']
 })
 export class EventFormComponent implements OnInit {
-
   model = new Event();
+  isCreate: boolean;
 
   constructor(private eventService: EventService, location: Location, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      let id = params['eventId'];
+      this.isCreate = !id;
+      if(!this.isCreate){
+        this.eventService.getEvent(id).subscribe((event: Event)=>{
+          this.model = event;
+        })
+      }
+    })
   }
-  onSubmit() { 
-    this.eventService.postEvent(this.model).subscribe(()=>{
+
+  onCreateSubmit(){
+    this.eventService.postEvent(this.model).subscribe(() => {
       location.assign("/events/list");
     });
   }
 
+  onUpdateSubmit(){
+    this.eventService.putEvent(this.model).subscribe(() => {
+      location.assign("/events/list");
+    });
+  }
 }

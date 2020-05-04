@@ -27,7 +27,9 @@ export class UserService {
   postUser(user: User){
     return this.http.post(this.resourceUrl, user, this.httpOptions);
   }
-  putUser(){
+  putUser(user: User){
+    user.events = null;
+    return this.http.put(this.resourceUrl + user.id, user, this.httpOptions);
   }
   deleteUser(id: number): void{
     this.http.delete(this.resourceUrl + id).subscribe(()=>{

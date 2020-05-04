@@ -1,6 +1,11 @@
 <div class="container">
-    <h1>Event Form</h1>
-    <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+    <div *ngIf="isCreate; else elseTitleBlock">
+        <h1>Create Event Form</h1>
+    </div>
+    <ng-template #elseTitleBlock>
+        <h1>Update Event Form</h1>
+    </ng-template>
+    <form (ngSubmit)="isCreate ? onCreateSubmit() : onUpdateSubmit()" #eventForm="ngForm">
         <label for="name">Name</label>
         <div class="form-group">
             <input 
@@ -34,6 +39,8 @@
                 name="cost"
             >
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">
+            {{isCreate ? "Submit New Event" : "Update Event"}}
+        </button>
     </form>
 </div>

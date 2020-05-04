@@ -26,8 +26,9 @@ export class EventService {
   postEvent(event: Event){
     return this.http.post(this.resourceUrl, event, this.httpOptions);
   }
-  putEvent(){
-
+  putEvent(event: Event){
+    event.users = null;
+    return this.http.put(this.resourceUrl + event.id, event, this.httpOptions);
   }
   deleteEvent(id: number): void{
     this.http.delete(this.resourceUrl + id).subscribe(()=>{
