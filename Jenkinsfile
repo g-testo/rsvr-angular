@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('SpringBoot Integration Test') {
+    stage('Start Angular Server') {
       steps {
         sh "ng serve &"
       }
